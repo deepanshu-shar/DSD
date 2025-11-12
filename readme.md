@@ -1,0 +1,1 @@
+this file includes code of design and simulation of a simple digital system using Verilog HDL.
