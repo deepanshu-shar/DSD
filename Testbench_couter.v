@@ -1,24 +1,15 @@
-`timescale 1ns/1ps
-
-module tb;
-reg clk, rst;
-wire [3:0] q;
-
-counter uut(clk, rst, q);
-
-initial begin
-    clk = 0;
-    forever #5 clk = ~clk;
+module counter_2bit(
+    input clk,
+    input rst,
+    output reg [1:0] count
+);
+ 
+always @(posedge clk or posedge rst) begin
+    if (rst)
+        count <= 2'b00;
+    else
+        count <= count + 1;
 end
-
-initial begin
-    $dumpfile("wave.vcd");
-    $dumpvars(0, tb);
-
-    rst = 1; #12;
-    rst = 0;
-
-    #200;
-    $finish;
-end
+ 
 endmodule
+
