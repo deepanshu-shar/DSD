@@ -1,4 +1,4 @@
-
+//2 bit synchronous up counter
 module counter_2bit(
     input clk,
     input rst,
@@ -12,3 +12,4 @@ module counter_2bit(
             count <= count + 1;  
     end
 endmodule
+
